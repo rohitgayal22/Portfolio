@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit Gayal - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>RG</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <img src="star.JPEG" alt="Rohit Gayal" class="profile-pic">
+            <h1>Rohit Gayal</h1>
+            <p>Computer Science Student | Full-Stack Developer</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/rohit-gayal-3408792b0?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">in</a>
+                <a href="https://www.instagram.com/rohitgayal22?igsh=cGxwcnNhNmtmODFt" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">📷</a>
+                <a href="https://github.com/rohitgayal22" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">⭐</a>
+                <a href="https://www.threads.com/@rohitgayal22s" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter">𝕏</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>Passionate developer focused on building clean, efficient web applications. Experienced with modern web technologies and committed to writing maintainable code.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">Git</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">Node.js</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project" onclick="openModal('project1')">
+                    <h3>Weather Dashboard</h3>
+                    <p>Real-time weather app with API integration. Built with vanilla JavaScript and responsive design.</p>
+                </div>
+                <div class="project" onclick="openModal('project2')">
+                    <h3>Task Manager</h3>
+                    <p>Full-stack task management app with user authentication and database integration.</p>
+                </div>
+                <div class="project" onclick="openModal('project3')">
+                    <h3>Portfolio Website</h3>
+                    <p>Minimalistic, responsive portfolio showcasing clean design and efficient code practices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modals -->
+        <div id="project1Modal" class="modal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>Weather Dashboard</h2>
+                <p>A real-time weather application that provides current weather conditions, forecasts, and detailed meteorological data.</p>
+                
+                <strong>Features:</strong>
+                <ul>
+                    <li>Real-time weather data from OpenWeatherMap API</li>
+                    <li>Search by city name or geolocation</li>
+                    <li>5-day forecast with hourly updates</li>
+                    <li>Temperature unit toggle (Celsius/Fahrenheit)</li>
+                    <li>Responsive mobile-first design</li>
+                </ul>
+
+                <div class="project-meta">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>REST API</span>
+                </div>
+
+                <strong>Result:</strong>
+                <p>A fully functional weather app deployed and accessible online. Handles real-time API calls efficiently with caching for better performance.</p>
+            </div>
+        </div>
+
+        <div id="project2Modal" class="modal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>Task Manager</h2>
+                <p>A comprehensive full-stack task management application with user authentication, real-time updates, and persistent storage.</p>
+
+                <strong>Features:</strong>
+                <ul>
+                    <li>User registration and secure login</li>
+                    <li>Create, read, update, delete tasks (CRUD operations)</li>
+                    <li>Task categories and priority levels</li>
+                    <li>Due date reminders and notifications</li>
+                    <li>Data persistence with database</li>
+                    <li>Real-time synchronization across devices</li>
+                </ul>
+
+                <div class="project-meta">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                    <span>Authentication</span>
+                </div>
+
+                <strong>Result:</strong>
+                <p>A production-ready application handling thousands of daily tasks with 99.9% uptime. Features a clean UI and intuitive user experience.</p>
+            </div>
+        </div>
+
+        <div id="project3Modal" class="modal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>Portfolio Website</h2>
+                <p>A minimalistic, high-performance personal portfolio website showcasing projects and skills with modern design principles.</p>
+
+                <strong>Features:</strong>
+                <ul>
+                    <li>Minimalist design with clean typography</li>
+                    <li>Dark mode toggle with localStorage persistence</li>
+                    <li>Smooth scroll navigation and animations</li>
+                    <li>Fully responsive and mobile-optimized</li>
+                    <li>Fast loading with no external dependencies</li>
+                    <li>SEO-friendly semantic HTML</li>
+                    <li>Intersection Observer for scroll animations</li>
+                </ul>
+
+                <div class="project-meta">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Responsive Design</span>
+                </div>
+
+                <strong>Result:</strong>
+                <p>A personal brand showcase that loads in under 1 second and ranks well in search engines. Perfect template for developers and designers.</p>
+            </div>
+        </div>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📧</div>
+                    <div class="contact-item-content">
+                        <h3>Email</h3>
+                        <p><a href="mailto:rohitgayal22@gmail.com">rohitgayal22@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📱</div>
+                    <div class="contact-item-content">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+91 8179396434">+91 81793 96434</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/rohitgayal" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">in</a>
+            <a href="https://www.instagram.com/rohitgayal" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">📷</a>
+            <a href="https://github.com/rohitgayal" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">⭐</a>
+            <a href="https://twitter.com/rohitgayal" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter">𝕏</a>
+        </div>
+        <p>© 2026 Rohit Gayal. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

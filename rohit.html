@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit Gayal - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --bg: #ffffff;
+            --text: #333;
+            --accent: #0066cc;
+            --border: #e0e0e0;
+        }
+
+        body.dark-mode {
+            --primary: #ffffff;
+            --bg: #1a1a1a;
+            --text: #f0f0f0;
+            --accent: #66b3ff;
+            --border: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 3px solid var(--accent);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: opacity 0.3s, box-shadow 0.3s;
+            border: 2px solid var(--accent);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            opacity: 0.8;
+        }
+
+        body.dark-mode .cta-button {
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 10px var(--accent), inset 0 0 10px rgba(102, 179, 255, 0.2);
+        }
+
+        body.dark-mode .cta-button:hover {
+            box-shadow: 0 0 20px var(--accent), inset 0 0 15px rgba(102, 179, 255, 0.4);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--bg);
+            transform: translateY(-3px);
+        }
+
+        body.dark-mode .social-link {
+            box-shadow: 0 0 8px var(--accent);
+        }
+
+        body.dark-mode .social-link:hover {
+            box-shadow: 0 0 16px var(--accent), inset 0 0 8px rgba(102, 179, 255, 0.3);
+        }
+
+        footer .social-links {
+            margin: 1rem 0;
+        }
+
+        footer .social-link {
+            border-color: var(--bg);
+            color: var(--bg);
+        }
+
+        footer .social-link:hover {
+            background: var(--bg);
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--border);
+            padding: 0.75rem 1rem;
+            border-radius: 0.25rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .project h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .project p {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--bg);
+            color: var(--text);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+        }
+
+        .modal h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .modal p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .project-meta span {
+            background: var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .contact-form {
+            max-width: 500px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            min-width: 30px;
+        }
+
+        .contact-item-content h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .contact-item-content p {
+            margin: 0;
+            color: #666;
+        }
+
+        body.dark-mode .contact-item-content p {
+            color: #aaa;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            background: var(--bg);
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--bg);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 2rem 0;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>RG</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <img src="star.JPEG" alt="Rohit Gayal" class="profile-pic">
+            <h1>Rohit Gayal</h1>
+            <p>Computer Science Student | Full-Stack Developer</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/rohit-gayal-3408792b0?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">in</a>
+                <a href="https://www.instagram.com/rohitgayal22?igsh=cGxwcnNhNmtmODFt" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">📷</a>
+                <a href="https://github.com/rohitgayal22" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">⭐</a>
+                <a href="https://www.threads.com/@rohitgayal22s" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter">𝕏</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>Passionate developer focused on building clean, efficient web applications. Experienced with modern web technologies and committed to writing maintainable code.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">Git</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">Node.js</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project" onclick="openModal('project1')">
+                    <h3>Weather Dashboard</h3>
+                    <p>Real-time weather app with API integration. Built with vanilla JavaScript and responsive design.</p>
+                </div>
+                <div class="project" onclick="openModal('project2')">
+                    <h3>Task Manager</h3>
+                    <p>Full-stack task management app with user authentication and database integration.</p>
+                </div>
+                <div class="project" onclick="openModal('project3')">
+                    <h3>Portfolio Website</h3>
+                    <p>Minimalistic, responsive portfolio showcasing clean design and efficient code practices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modals -->
+        <div id="project1Modal" class="modal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>Weather Dashboard</h2>
+                <p>A real-time weather application that provides current weather conditions, forecasts, and detailed meteorological data.</p>
+                
+                <strong>Features:</strong>
+                <ul>
+                    <li>Real-time weather data from OpenWeatherMap API</li>
+                    <li>Search by city name or geolocation</li>
+                    <li>5-day forecast with hourly updates</li>
+                    <li>Temperature unit toggle (Celsius/Fahrenheit)</li>
+                    <li>Responsive mobile-first design</li>
+                </ul>
+
+                <div class="project-meta">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>REST API</span>
+                </div>
+
+                <strong>Result:</strong>
+                <p>A fully functional weather app deployed and accessible online. Handles real-time API calls efficiently with caching for better performance.</p>
+            </div>
+        </div>
+
+        <div id="project2Modal" class="modal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>Task Manager</h2>
+                <p>A comprehensive full-stack task management application with user authentication, real-time updates, and persistent storage.</p>
+
+                <strong>Features:</strong>
+                <ul>
+                    <li>User registration and secure login</li>
+                    <li>Create, read, update, delete tasks (CRUD operations)</li>
+                    <li>Task categories and priority levels</li>
+                    <li>Due date reminders and notifications</li>
+                    <li>Data persistence with database</li>
+                    <li>Real-time synchronization across devices</li>
+                </ul>
+
+                <div class="project-meta">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                    <span>Authentication</span>
+                </div>
+
+                <strong>Result:</strong>
+                <p>A production-ready application handling thousands of daily tasks with 99.9% uptime. Features a clean UI and intuitive user experience.</p>
+            </div>
+        </div>
+
+        <div id="project3Modal" class="modal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>Portfolio Website</h2>
+                <p>A minimalistic, high-performance personal portfolio website showcasing projects and skills with modern design principles.</p>
+
+                <strong>Features:</strong>
+                <ul>
+                    <li>Minimalist design with clean typography</li>
+                    <li>Dark mode toggle with localStorage persistence</li>
+                    <li>Smooth scroll navigation and animations</li>
+                    <li>Fully responsive and mobile-optimized</li>
+                    <li>Fast loading with no external dependencies</li>
+                    <li>SEO-friendly semantic HTML</li>
+                    <li>Intersection Observer for scroll animations</li>
+                </ul>
+
+                <div class="project-meta">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Responsive Design</span>
+                </div>
+
+                <strong>Result:</strong>
+                <p>A personal brand showcase that loads in under 1 second and ranks well in search engines. Perfect template for developers and designers.</p>
+            </div>
+        </div>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📧</div>
+                    <div class="contact-item-content">
+                        <h3>Email</h3>
+                        <p><a href="mailto:rohitgayal22@gmail.com">rohitgayal22@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📱</div>
+                    <div class="contact-item-content">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+91 8179396434">+91 81793 96434</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/rohitgayal" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">in</a>
+            <a href="https://www.instagram.com/rohitgayal" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">📷</a>
+            <a href="https://github.com/rohitgayal" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">⭐</a>
+            <a href="https://twitter.com/rohitgayal" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter">𝕏</a>
+        </div>
+        <p>© 2026 Rohit Gayal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Initialize theme from localStorage
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        // Scroll to home section on page load
+        window.addEventListener('load', () => {
+            const homeSection = document.getElementById('home');
+            if (homeSection) {
+                homeSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section, .project').forEach(el => observer.observe(el));
+
+        // Modal functionality
+        function openModal(projectId) {
+            const modalId = projectId + 'Modal';
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event && event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            } else {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+            }
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // In production, send this to a backend service
+            console.log({
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            });
+            
+            alert('Message sent successfully!');
+            form.reset();
+        }
+    </script>
+</body>
+</html>
